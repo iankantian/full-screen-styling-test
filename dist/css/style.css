@@ -1,166 +1,170 @@
-* {
-    box-sizing: border-box;
-}
-.row::after {
-    content: "";
-    clear: both;
-    display: block;
-}
-[ class *= "col-" ] {
-    float: left;
-    padding: 15px;
-}
-html {
-    font-family: "Arial", sans-serif;
-}
-.header {
-    background-color: #0b1727;
-    color: #ffffff;
-    padding: 10px;
-    font-size: 100%;
-    border-radius: 5px;
-}
-.menu ul {
-    list-style-type: none;
+body {
+    background-color: rosybrown;
     margin: 0;
     padding: 0;
-}
-.menu li {
-    padding: 8px;
-    margin-bottom: 7px;
-    background-color :#008000;
-    color: #ffffff;
-    box-shadow: 0 3px 5px rgba( 0,0,0,0.12 ), 0 2px 4px rgba( 0,0,0,0.24 );
-    border-radius: 5px;
-    transition: 0.25s;
-}
-.menu li:hover {
-    background-color: #30b030;
-}
-.aside {
-    background-color: #227ac6;
-    padding: 15px;
-    color: #ffffff;
-    text-align: center;
-    font-size: 14px;
-    box-shadow: 0 3px 5px rgba( 0,0,0,0.12 ), 0 2px 4px rgba( 0,0,0,0.24 );
-    border-radius: 5px;
-}
-.aside p{
-    padding: 10px;
-    transition: 0.25s;
-}
-.aside p:hover {
-    background-color: #52aaf6;
-}
-.footer {
-    background-color: #dd0000;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    font-size: 100%;
-    border-radius: 5px;
-}
-.invisible {
-    opacity: 0.0;
-}
-.visible {
-    opacity: 1.0;
-}
-/* For mobile phones: */
-[ class *= "col-" ] {
-    width: 100%;
+    color: white;
+    font-size: 25px;
 }
 
-@media only screen and ( min-width: 750px ) {
-    /* For desktop: */
-    .col-1 { width: 8.33%; }
-    .col-2 { width: 16.66%; }
-    .col-3 { width: 25%; }
-    .col-4 { width: 33.33%; }
-    .col-5 { width: 41.66%; }
-    .col-6 { width: 50%; }
-    .col-7 { width: 58.33%; }
-    .col-8 { width: 66.66%; }
-    .col-9 { width: 75%; }
-    .col-10 { width: 83.33%; }
-    .col-11 { width: 91.66%; }
-    .col-12 { width: 99%; }
-}
-@media only screen and ( orientation: landscape ) and ( min-height: 500px ){
-    .header{
-        font-size: 200%;
-        padding: 15px;
-    }
-}
-
-.video {
+svg.myIcon {
+    display: block;
     width: 100%;
     height: 100%;
 }
-#main_display {
-    position:relative;
+
+.myIcon_invisible {
+    opacity: 0.0;
+}
+
+#myIcon_hud {
+    position:absolute;
     top: 0;
     left: 0;
-    font-family: sans-serif;
-    background-color: black;
-    padding:0;
-}
-#close {
-    right: 0;
-}
-#HUD {
     cursor: default;
-    position: absolute;
-    color:lightgreen;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    transition: 1s;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 25px;
+    vertical-align: middle;
+    transition: opacity 1s;
 }
-#controlbar {
+
+#myIcon_title, #myIcon_skip {
+    position: relative;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 10px;
+    float: left;
+}
+
+.myIcon_skip_after {
+    border: 1px solid lightgray;
+}
+
+#myIcon_close {
+    margin: 10px;
+    height: 30px;
+    float: right;
+}
+
+.myIcon_active_control {
+    fill: white;
+    stop-color: white;
+    stroke: white;
+    stroke-width: 0;
+    border-color: white;
+}
+
+.myIcon_inactive_control {
+    fill: darkgray;
+    stop-color: darkgray;
+    stroke: darkgray;
+    stroke-width: 0;
+    border-color: darkgray;
+}
+
+#myIcon_controls {
     position: absolute;
+    border-spacing: 10px;
+    border-collapse: separate;
     bottom: 0;
     left: 0;
-    width: 99%;
-    padding: 10px;
-    transition: 1s;
-}
-#titlebar {
-    position: absolute;
-    top: 0;
     width: 100%;
-    padding: 10px;
-    transition: 1s;
+    height:30px;
+    background: #061b2b;
 }
-#title{ display: inline; }
-#skip{ display: inline; }
-#tooless_duration{ display: inline; }
-#close{
-    float: right;
-    display: inline;
+
+#myIcon_controls td, th, tr {
+    border-collapse: separate;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-spacing: 0;
 }
-#play{
-    float:left;
-    /*display: inline;*/
+
+#myIcon_clock {
+    height: 100%;
+    width: 125px;
 }
-#progress{
-    float:left;
-    width: 100%;
-    /*display: inline;*/
-    background-color: blue;
+
+#myIcon_play, #myIcon_pause, #myIcon_muted, #myIcon_close, #myIcon_mute, #myIcon_fs_active, #myIcon_fs_inactive {
+    width: 20px;
+    height: 20px;
+}
+
+#myIcon_volume {
+    width: 100px;
+    height: 20px;
     cursor: col-resize;
 }
-#mute{
-    float:left;
-    /*display: inline;*/
+
+.myIcon_progress {
+    cursor: col-resize;
 }
-#volume{
-    /*display: inline;*/
-    float: left;
+
+.myIcon_progressBacking {
+    height: 40%;
+    border-radius: 100px;
+    border: 1px solid lightgray;
+    padding: 0;
+    background-color: dimgray;
 }
-#fullscreen{
-    float: left;
-    /*display: inline;*/
+
+#myIcon_playpos, #myIcon_loaded{
+    height: 100%;
+    width: 0;
+    border-radius: 100px;
+    border: none;
+    transition: width linear .5s;
+}
+#myIcon_playpos {
+    position: relative;
+    top: -100%;
+    background-color: white;
+}
+#myIcon_loaded {
+    background-color: darkgray;
+}
+
+
+/*regular desktop and tablet*/
+@media ( min-device-width: 1200px ) {
+    #myIcon_hud {
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    #myIcon_play, #myIcon_pause, #myIcon_muted, #myIcon_close, #myIcon_mute, #myIcon_fs_active, #myIcon_fs_inactive {
+        width: 20px;
+        height: 20px;
+    }
+
+    #myIcon_volume {
+        width: 100px;
+        height: 20px;
+    }
+
+    #myIcon_controls {
+        height: 32px;
+        border-spacing: 8px;
+    }
+}
+
+#myIcon_videoWrapper {
+    /*display: none; !*turning off temporarily*!*/
+    position: relative;
+    height: auto;
+    width: 100%;
+    background: black;
+}
+#myIcon_videoWrapper > video{
+    width: 100%;
+    height: 100%;
+}
+
+/*a div that we would be playing inside of:*/
+#target_div{
+    width: 640px;
+    height: 360px;
 }

@@ -1,0 +1,3 @@
+# full-screen-styling-test
+My client wanted their own video player.  The existing solution depended on frequent polling of the DOM to update the position and size of the control bar, and was was always visible.  
+My solution was to move the position information into CSS, also giving the interface different sizes based on screen orientation and resolution.  Custom SVG for the icons stay sharp at any zoom level and are on the order of a few hundred BYTES in size, inlined with the code to prevent HTTP fetching.  Also my display prevents users from using default HTML5 video controls, a stretch goal for my client I was able to provide.
